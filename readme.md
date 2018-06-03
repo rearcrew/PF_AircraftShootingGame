@@ -1,6 +1,6 @@
 # 포트폴리오 : 탑뷰 슈팅게임
 ## 소개
-![Image](Images/PF_Game.webp)
+![webp Image](Images/PF_Game.webp)
 우유를 던지는 젖소를 쏴죽이는 게임입니다.
 
 총 5마리의 젖소가 나오며 1마리를 죽이면 100점의 점수가 오릅니다.<br>
