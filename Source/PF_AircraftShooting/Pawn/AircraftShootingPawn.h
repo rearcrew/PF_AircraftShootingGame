@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Abilities/PFAttributeSet.h"
+
 #include "AircraftShootingPawn.generated.h"
 
 UCLASS()
@@ -19,6 +21,14 @@ public:
 
 	virtual void BeginPlay() override;
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+
+	/** Returns current health, will be 0 if dead */
+	UFUNCTION(BlueprintCallable)
+		virtual float GetHealth() const;
+
+	/** Returns maximum health, health will never be greater than this */
+	UFUNCTION(BlueprintCallable)
+		virtual float GetMaxHealth() const;
 
 	void OnStartFire();
 	void OnStopFire();
@@ -60,6 +70,10 @@ public:
 		int32 Health;
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadOnly)
 		int32 MaxHealth;
+
+	/** List of attributes modified by the ability system */
+	UPROPERTY()
+		UPFAttributeSet* AttributeSet;
 
 	UPROPERTY(BlueprintAssignable)
 		FUpdateUIDelegate OnUpdateHealthUI;

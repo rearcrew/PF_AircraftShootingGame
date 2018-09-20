@@ -107,6 +107,16 @@ float AAircraftShootingPawn::TakeDamage(float DamageAmount, struct FDamageEvent 
 	return ActualDamage;
 }
 
+float AAircraftShootingPawn::GetHealth() const
+{
+	return AttributeSet->GetHealth();
+}
+
+float AAircraftShootingPawn::GetMaxHealth() const
+{
+	return AttributeSet->GetMaxHealth();
+}
+
 void AAircraftShootingPawn::OnStartFire()
 {
 	if (bFireAction)
